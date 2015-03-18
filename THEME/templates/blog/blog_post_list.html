@@ -76,69 +76,32 @@
     </nav>
 </div> <!-- ./#contentNav_layer -->
 
-<div class='col-md-8 col-sm-8 col-xs-12'>
-    {% for crea in lastCreations %}
-    {% if forloop.revcounter == 1 %}
-    <div class='box bigbox'>
-        <div class='layer-img'>
-            <a><img class='illustration' src='{{ MEDIA_URL }}{{ crea.featured_image }}' /></a>
-        </div>
-        <div class='item-caption'>
-            <h3>{{ crea.title }}</h3>
-            <h4>{{ crea.slug }}</h4>
-        </div>
-    </div>
+
+{% for blog_post in blog_posts.object_list %}
+    {% if forloop.counter0 == 0 %}
+    <div class='col-md-8 col-sm-8 col-xs-12'>
+        <div class='box bigbox'>
+    {% elif forloop.counter0 < 3 %}
+    <div class='col-md-4 col-sm-4 col-xs-6'>
+        <div class='box smallbox'>
+    {% elif forloop.counter0 == 3 %}
+    <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
+        <div class='box bigbox'>
+    {% elif forloop.counter0 > 3 %}
+    <div class='col-md-4 col-sm-4 col-xs-6'>
+        <div class='box smallbox'>
     {% endif %}
-    {% endfor %}
-</div>
-<div class='col-md-4 col-sm-4 col-xs-12'>
-    <div class='row'>
-        <div class='col-md-12 col-sm-12 col-xs-6'>
-            <div class='box smallbox'>
-                <div class='layer-img'>
-                    <a><img class='illustration' src='img/test/test3.jpg' /></a>
-                </div>
-                <div class='item-caption'>
-                    <h3>titre article</h3>
-                    <h4>more information about this article</h4>
-                </div>
+            <div class='layer-img'>
+                <a><img class='illustration' src='{{ MEDIA_URL }}{{ blog_post.featured_image }}' /></a>
             </div>
-        </div>
-        <div class='col-md-12 col-sm-12 col-xs-6'>
-            <div class='box smallbox'>
-                <div class='layer-img'>
-                    <a><img class='illustration' src='img/test/test2.jpg' /></a>
-                </div>
-                <div class='item-caption'>
-                    <h3>titre article</h3>
-                    <h4>more information about this article</h4>
-                </div>
-            </div>
+            <a href="{{ blog_post.get_absolute_url }}"><div class='item-caption'>
+                <h3>{{ blog_post.title }}</h3>
+                <h4>{{ blog_post.slug }}</h4>
+            </div></a>
         </div>
     </div>
-</div>
-<div class='col-md-4 col-sm-4 col-xs-12'>
-    <div class='row'>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-            <div class='box smallbox'>
-                <div class='item-caption'>
-                    NEWS
-                </div>
-            </div>
-        </div>
-        <div class='col-md-12 col-sm-12 col-xs-12'>
-            <div class='box smallbox'>
-                <div class='layer-img'>
-                    <a><img class='illustration' src='img/test/test7.jpg' /></a>
-                </div>
-                <div class='item-caption'>
-                    <h3>titre article</h3>
-                    <h4>more information about this article</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% endfor %}
+
 <div class='col-md-8 col-sm-8 col-xs-12'>
     {% for crea in lastCreations %}
     {% if forloop.revcounter == 2 %}
@@ -183,7 +146,7 @@
     {% endif %}
 {% endif %}
 
-{% for blog_post in blog_posts.object_list %}
+{% for blog_post in blog_posts.object_listx %}
 {% block blog_post_list_post_title %}
 {% editable blog_post.title %}
 <h2>
