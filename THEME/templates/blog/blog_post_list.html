@@ -76,6 +76,9 @@
     </nav>
 </div> <!-- ./#contentNav_layer -->
 
+{% if test_pub %}
+    <script type="text/javascript">alert('fuck yeah');</script>
+{% endif %}
 
 {% for blog_post in blog_posts.object_list %}
     {% if forloop.counter0 == 0 %}
@@ -92,11 +95,21 @@
         <div class='box smallbox'>
     {% endif %}
             <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{{ blog_post.featured_image }}' /></a>
+                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 500 250 %}' /></a>
             </div>
             <a href="{{ blog_post.get_absolute_url }}"><div class='item-caption'>
                 <h3>{{ blog_post.title }}</h3>
-                <h4>{{ blog_post.slug }}</h4>
+                <h4>
+    {% with blog_post.categories.all as categories %}
+    {% if categories %}
+    {% trans "in" %}
+    {% for category in categories %}
+    <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
+                </h4>
             </div></a>
         </div>
     </div>

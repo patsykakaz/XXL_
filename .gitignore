@@ -5,7 +5,7 @@
 .coverage
 local_settings.py
 settings.py
-/static
+XXL/static/media
 /bin
 /include
 /lib
