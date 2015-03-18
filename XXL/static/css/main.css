@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/*
+    purple: rgb(82,51,111);
+    blue: rgb(61,62,127);
+    orange: rgb(205,97,0);
+    lightPurple: rgb(124,108,148);
+*/
+
+body{
+    padding: 0 0 15px 0;
+    background-color: white;
+}
+
+#navBorder{
+    height: 10px;
+    background-color: rgba(82,51,111,.85);
+    margin-bottom: 15px;
+}
+
+#pubLayer{
+    position: absolute;
+    width: 100%;
+    height: 1200px;
+    margin: auto;
+    background: url('../img/test_habillage.jpg') no-repeat;
+    background-position: center top;
+}
+.on .shadowForContainer{
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,.2);
+}
+
+#main{
+    position: relative;
+    z-index: 19;
+    /*overflow: hidden;*/
+    margin-bottom: 50px;
+    background-color: white;
+}
+#main.pubOn{
+    max-width: 970px;
+    margin-top: 150px;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,.2);
+}
+#main.pubOff{
+    margin-top: 80px;
+}
+
+#nav2{
+    position: relative;
+    top: 1px;
+}
+
+.slot{
+    display: inline-block;
+    width: 100px;
+    padding: 20px;
+    padding-top: 80px;
+}
+
+.box{
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #f8f8f8;
+    border: 1px solid rgba(0,0,0,.065);
+    border-bottom: 1px solid #cad1d7;
+    border-radius: 0 0 3px 3px;
+}
+#main.pubOff .box{
+    /*background-color: white;*/
+}
+.smallbox{
+    height: 200px;
+}
+.bigbox{
+    height: 430px;
+}
+#pubRow .smallbox, #pubRow .bigbox{
+    height: auto;
+}
+#pubRow .box img{
+    max-width: 100%;
+}
+
+#pubRow{
+    border-left: 1px dashed;
+    border-color: rgb(200,200,200);
+}
+
+.layer-img{
+	position: relative;
+    overflow: hidden;
+}
+#contentRow .smallbox .layer-img{
+	height: 130px;
+}#contentRow .bigbox .layer-img{
+	height: 360px;
+}
+.arrow{
+	position: absolute;
+	bottom: 0;
+	left: 25px;
+}
+.illustration{
+    position: relative;
+    height: 100%;
+    transition: all .4s ease-in-out;
+    /*transform: scale(1);*/
+}
+#contentRow .layer-img:hover img{
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+.item-caption{
+    height: 70px;
+    padding: 15px;
+}
+.item-caption h3{
+    font-family: 'Slabo 27px', serif;
+    margin: 0;
+    font-size: 16px;
+    color: rgb(124,108,148);
+}.item-caption h4{
+    font-family: 'Slabo 27px', serif;
+    margin: 0;
+    font-size: 14px;
+    color: rgba(124,108,148,.7);
+}
