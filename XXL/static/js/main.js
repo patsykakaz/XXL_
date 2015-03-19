@@ -18,8 +18,8 @@ $(window).load(function(){
     adapt_form_width();
 });
 $(window).resize(function(){
-    boxImageSizing();
     placement_habillage();
+    boxImageSizing();
     place_shifting_elements();
     deploiment_contentNav();
     adapt_form_width();
@@ -49,18 +49,11 @@ function place_static_elements(){
 }
 
 function place_shifting_elements(){
-
-    // alignement vertical Logo principal
-    // $('#masterNav img').css('margin-top', ($('#masterNav').outerHeight()-$('#masterNav img').outerHeight())/2);
-    // aligne les .navbar-nav de masterNav en bas de la navbar
-    // !!!!! ADAPTER POUR MOBILE !!!!!
-
     // positionnement du logo pour la deployNav
     $('#logo_deploy').css('left', ($(window).width()-$('#main').outerWidth())/2-$('#logo_deploy').outerWidth());
-
     // Alignement vertical de navbar-form
     target = $('#contentNav .navbar-form');
-    // target.css('margin-top', ($('#contentNav .container-fluid').height()-target.outerHeight())/2);
+    ajustement_pubRow_mobile();
 }
 
 // Resizing box images
@@ -68,11 +61,18 @@ function boxImageSizing(){
     $('.box').each(function(){
         layer = $(this).children('.layer-img');
         illustration = layer.children('a').children('.illustration');
-        if(illustration.width()<layer.width()){
-            illustration.css('height', 'auto').css('width', '100%').css('bottom',(illustration.height()-layer.height())/2);
-        }
+        illustration.css('right', (illustration.width()-layer.width())/2).css('bottom', (illustration.height()-layer.height())/2);
     });
 }
+    // function boxImageSizing_bkp(){
+    //     $('.box').each(function(){
+    //         layer = $(this).children('.layer-img');
+    //         illustration = layer.children('a').children('.illustration');
+    //         if(illustration.width()<layer.width()){
+    //             illustration.css('height', 'auto').css('width', '100%').css('bottom',(illustration.height()-layer.height())/2);
+    //         }
+    //     });
+    // }
 // ./Resizing box images
 
 // Placement HABILLAGE
@@ -131,4 +131,11 @@ function deploiment_contentNav(){
     }
 }
 // ./Deploiment contentNav
+
+function ajustement_pubRow_mobile(){
+    if($(document).width() < 992){
+        $('.revueBox').css('float', 'right');
+        $('.revueBox img').css('width', '100%');
+    }
+}
 
