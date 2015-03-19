@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/*
+    purple: rgb(82,51,111);
+    blue: rgb(61,62,127);
+    orange: rgb(205,97,0);
+    lightPurple: rgb(124,108,148);
+*/
+
+.pagination>li>a, .pagination>li>span{
+	color: rgb(124,108,148);
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+	background-color: rgb(124,108,148);
+	border-color: rgb(124,108,148);
+}
+

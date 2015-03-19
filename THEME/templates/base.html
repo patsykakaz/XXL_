@@ -67,17 +67,13 @@
 
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right">
         {% page_menu "pages/menus/dropdown.html" %}
-    </ul>
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
 </nav>
 <div id='navBorder'></div>
 
-{% if test_pub %}
-    <div id='pubLayer'></div>
-{% endif %}
+<!--    <div id='pubLayer' style="background-image: url('{{ STATIC_URL }}img/habillage.png');"></div> -->
 
 <div id='main' class="container">
     {% nevercache %}
@@ -105,16 +101,13 @@
                 <div class='col-md-12'>
                     <div class='box smallbox' style='margin-top: 0px'>
                         <div class='layer-img'>
-                            <a></a>
-                        </div>
-                        <div class='item-caption'>
-                            pub
+                            <a><img src='{{ STATIC_URL }}img/square.png' alt='publicité' /></a>
                         </div>
                     </div>
                 </div>
                 <div class='col-md-12'>
                     <div class='box revueBox'>
-                    <img src='img/couverture.jpg' alt='couverture revue XXL' />
+                    <img src='{% static 'img/couverture.jpg' %}' alt='couverture revue XXL' />
                         <div class='item-caption hide'>
                             
                         </div>
@@ -123,10 +116,7 @@
                 <div class='col-md-12'>
                     <div class='box bigbox'>
                         <div class='layer-img'>
-                            <a></a>
-                        </div>
-                        <div class='item-caption'>
-                            pub
+			    <a><img src='{% static "img/colonne.png" %}' /></a>
                         </div>
                     </div>
                 </div>
