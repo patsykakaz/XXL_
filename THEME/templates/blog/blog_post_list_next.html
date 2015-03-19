@@ -10,17 +10,7 @@
         <div class='box bigbox'>
             <div class='layer-img'>
                 <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
-    {% elif forloop.counter0 < 3 %}
-    <div class='col-md-4 col-sm-4 col-xs-6'>
-        <div class='box smallbox'>
-            <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
-    {% elif forloop.counter0 == 3 %}
-    <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
-        <div class='box bigbox'>
-            <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
-    {% elif forloop.counter0 > 3 %}
+    {% else %}
     <div class='col-md-4 col-sm-4 col-xs-6'>
         <div class='box smallbox'>
             <div class='layer-img'>

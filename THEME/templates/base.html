@@ -91,37 +91,37 @@
 <div class='row'>
     <div class='col-md-9'>
         <div id='contentRow' class='row'>
+            <!-- /block_main -->
             {% block main %}
-
             {% endblock %}
-            </div>
+            <!-- ./block_main -->
         </div>
-        <div class='col-md-3'>
-            <div id='pubRow' class='row'>
-                <div class='col-md-12'>
-                    <div class='box smallbox' style='margin-top: 0px'>
-                        <div class='layer-img'>
-                            <a><img src='{{ STATIC_URL }}img/square.png' alt='publicité' /></a>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-md-12'>
-                    <div class='box revueBox'>
-                    <img src='{% static 'img/couverture.jpg' %}' alt='couverture revue XXL' />
-                        <div class='item-caption hide'>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class='col-md-12'>
-                    <div class='box bigbox'>
-                        <div class='layer-img'>
-			    <a><img src='{% static "img/colonne.png" %}' /></a>
-                        </div>
+    </div>
+    <div class='col-md-3'>
+        <div id='pubRow' class='row'>
+            <div class='col-md-12'>
+                <div class='box smallbox' style='margin-top: 0px'>
+                    <div class='layer-img'>
+                        <a><img src='{{ STATIC_URL }}img/square.png' alt='publicité' /></a>
                     </div>
                 </div>
             </div>
+            <div class='col-md-12'>
+                <div class='box revueBox'>
+                <img src='{% static 'img/couverture.jpg' %}' alt='couverture revue XXL' />
+                    <div class='item-caption hide'>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-12'>
+                <div class='box bigbox'>
+                    <div class='layer-img'>
+                        <a><img src='{% static "img/colonne.png" %}' /></a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 </div>
 </div>
 
