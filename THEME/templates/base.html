@@ -17,7 +17,6 @@
 
 {% compress css %}
 <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
 <!--  <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}"> -->
 <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
 <link rel="stylesheet" href="{% static "css/bootstrap.override.css" %}">
@@ -53,7 +52,7 @@
 <body id="{% block body_id %}body{% endblock %}">
 
 <nav id='masterNav' class="navbar navbar-inverse">
-<div class="container-fluid">
+<div class="container">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -69,22 +68,16 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="/page-random/">A PROPOS </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);">GROUPE MBC </a>
-        </li>
-        <li>
-            <a href="javascript:void(0);">ABONNE TOI BATARD </a>
-        </li>
+        {% page_menu "pages/menus/dropdown.html" %}
     </ul>
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
 </nav>
 <div id='navBorder'></div>
 
- <!-- <div id='pubLayer'></div> -->
+{% if test_pub %}
+    <div id='pubLayer'></div>
+{% endif %}
 
 <div id='main' class="container">
     {% nevercache %}

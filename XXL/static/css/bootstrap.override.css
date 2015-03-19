@@ -34,10 +34,17 @@
     overflow: hidden;
     height: 60px;
     padding: 0;
+    margin-top: 10px;
 }
 .navbar-brand img{
     height: 50px;
     margin: 0;
+}
+.navbar-inverse .navbar-text{
+    margin-top: 25px;
+    letter-spacing: 2.4px;
+    font-weight: lighter;
+    color: white;
 }
 
 #contentNav .navbar-form{
@@ -65,6 +72,7 @@
 
 #contentNav_layer{
     min-height: 76px;
+    margin-bottom: 15px;
     /*overflow: hidden;*/
     background-color: white;
 }

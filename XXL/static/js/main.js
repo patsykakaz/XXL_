@@ -46,9 +46,7 @@ function place_static_elements(){
 function place_shifting_elements(){
 
     // alignement vertical Logo principal
-    $('#masterNav img').css('margin-top', ($('#masterNav').outerHeight()-$('#masterNav img').outerHeight())/2);
-    // Calle la largeur de #masterNav sur celle de #main
-    $('#masterNav .container-fluid').width($('#main').width());
+    // $('#masterNav img').css('margin-top', ($('#masterNav').outerHeight()-$('#masterNav img').outerHeight())/2);
     // aligne les .navbar-nav de masterNav en bas de la navbar
     // !!!!! ADAPTER POUR MOBILE !!!!!
     if($(window).width()>=768){

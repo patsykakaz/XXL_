@@ -1,19 +1,114 @@
-{% extends "blog/blog_base.html" %}
+{% extends "base.html" %}
+
 {% load i18n future mezzanine_tags blog_tags keyword_tags disqus_tags pages_tags i18n future staticfiles %}
 
 
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+{% if page %}
+{% editable page.title %}{{ page.title }}{% endeditable %}
+{% else %}
+{% trans "Blog" %}
+{% endif %}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+{% if tag or category or year or month or author %}
+<li>{% spaceless %}
+{% if tag %}
+    {% trans "Tag:" %} {{ tag }}
+{% else %}{% if category %}
+    {% trans "Category:" %} {{ category }}
+{% else %}{% if year or month %}
+    {% if month %}{{ month }}, {% endif %}{{ year }}
+{% else %}{% if author %}
+    {% trans "Author:" %} {{ author.get_full_name|default:author.username }}
+{% endif %}{% endif %}{% endif %}{% endif %}
+{% endspaceless %}
+</li>
+{% endif %}
+{% endblock %}
+
+
+{% block main %}
+
+<div id='contentNav_layer'>
+    <nav id='contentNav' class="navbar navbar-default">
+        <div id='logo_deploy'><img src='{% static 'img/logo_small.png' %}' alt='logo XXL' /></div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav2">
+                    <span class="sr-only">{% trans "Toggle Navigation" %}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="nav2">
+                <form action='/search/' class="navbar-form navbar-right" role="search">
+                    {% search_form %}
+                    <!-- {% page_menu "pages/menus/dropdown.html" %} -->
+                </form>
+                <ul class="nav navbar-nav">
+                    <li class="{% if not category %}active{% endif %}">
+                        <a href="/"> ... </a>
+                    </li>
+                    {% for cat in category_all %}
+                    <li class="{% if cat == category %}active{% endif %}">
+                        <a href="{% url "blog_post_list_category" cat.slug %}">{{ cat.title|upper }} </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div> <!-- ./#contentNav_layer -->
+
 {% block blog_main %}
+
+{% if xxx %}
+    <script type="text/javascript">alert('fuck yeah');</script>
+{% endif %}
 
 {% for blog_post in blog_posts.object_list %}
     {% if forloop.counter0 == 0 %}
     <div class='col-md-8 col-sm-8 col-xs-12'>
         <div class='box bigbox'>
-    {% else %}
+            <div class='layer-img'>
+                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+    {% elif forloop.counter0 < 3 %}
     <div class='col-md-4 col-sm-4 col-xs-6'>
         <div class='box smallbox'>
-    {% endif %}
             <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 500 250 %}' /></a>
+                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+    {% elif forloop.counter0 == 3 %}
+    <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
+        <div class='box bigbox'>
+            <div class='layer-img'>
+                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+    {% elif forloop.counter0 > 3 %}
+    <div class='col-md-4 col-sm-4 col-xs-6'>
+        <div class='box smallbox'>
+            <div class='layer-img'>
+                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+    {% endif %}
             </div>
             <a href="{{ blog_post.get_absolute_url }}"><div class='item-caption'>
                 <h3>{{ blog_post.title }}</h3>
@@ -159,4 +254,8 @@
 {% endif %}
 
 {% endblock %}
+{% endblock %}
 
+{% block right_panel %}
+{% include "blog/includes/filter_panel.html" %}
+{% endblock %}
