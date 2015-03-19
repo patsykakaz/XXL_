@@ -33,6 +33,11 @@ $(document).scroll(function(){
 
 
 function place_static_elements(){
+    // if($(window).width()>=768){
+    //     $('#masterNav .navbar-nav').each(function(){
+    //         $(this).css('margin-top', ($('.navbar').height()-$(this).outerHeight()));
+    //     });
+    // }
     if($('#pubLayer').length){
         $('body').css('background-color', 'white');
         $('#main').addClass('pubOn');
@@ -49,11 +54,6 @@ function place_shifting_elements(){
     // $('#masterNav img').css('margin-top', ($('#masterNav').outerHeight()-$('#masterNav img').outerHeight())/2);
     // aligne les .navbar-nav de masterNav en bas de la navbar
     // !!!!! ADAPTER POUR MOBILE !!!!!
-    if($(window).width()>=768){
-        $('#masterNav .navbar-nav').each(function(){
-            $(this).css('margin-top', ($('.navbar').height()-$(this).outerHeight()));
-        });
-    }
 
     // positionnement du logo pour la deployNav
     $('#logo_deploy').css('left', ($(window).width()-$('#main').outerWidth())/2-$('#logo_deploy').outerWidth());
@@ -131,3 +131,4 @@ function deploiment_contentNav(){
     }
 }
 // ./Deploiment contentNav
+

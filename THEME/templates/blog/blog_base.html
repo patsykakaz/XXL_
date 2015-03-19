@@ -2,6 +2,9 @@
 
 {% load i18n future mezzanine_tags blog_tags keyword_tags disqus_tags pages_tags i18n future staticfiles %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static "css/blog.css" %}">
+{% endblock %}
 
 {% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock %}
 
