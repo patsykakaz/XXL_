@@ -64,16 +64,17 @@
             <div class="collapse navbar-collapse" id="nav2">
                 <form action='/search/' class="navbar-form navbar-right" role="search">
                     {% search_form %}
-                    <!-- {% page_menu "pages/menus/dropdown.html" %} -->
                 </form>
                 <ul class="nav navbar-nav">
                     <li class="{% if not category %}active{% endif %}">
-                        <a href="/"> ... </a>
+                        <a href="/">ALL</a>
                     </li>
                     {% for cat in category_all %}
+		    {% if cat.title != 'Digital' and cat.title != 'digital' and cat.title != 'DIGITAL' %}
                     <li class="{% if cat == category %}active{% endif %}">
                         <a href="{% url "blog_post_list_category" cat.slug %}">{{ cat.title|upper }} </a>
                     </li>
+		    {% endif %}
                     {% endfor %}
                 </ul>
             </div><!-- /.navbar-collapse -->

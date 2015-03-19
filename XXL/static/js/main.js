@@ -90,6 +90,7 @@ function placement_habillage(){
         }else{
             $('#main').css('margin-top', '150px');
         }
+        $('#pubRow .box:first').css('margin-top', '15px');
     }else{
         $('#pubRow .box:first').css('margin-top', '0');
     }
