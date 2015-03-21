@@ -73,7 +73,10 @@
 </nav>
 <div id='navBorder'></div>
 
-<!--    <div id='pubLayer' style="background-image: url('{{ STATIC_URL }}img/habillage.png');"></div> -->
+
+{% if pubTag = 'on' %}
+    <div id='pubLayer' style="background-image: url('{{ STATIC_URL }}img/habillage.png');"></div>
+{% endif %}
 
 <div id='main' class="container">
     {% nevercache %}
