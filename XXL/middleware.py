@@ -1,11 +1,30 @@
 #-*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from models import *
 
 class PubMiddleware(object):
     def process_template_response(self, request, response):
-        pubTag = "on"
-        response.context_data['pubTag'] = pubTag
-        print(response.context_data)
+        try:
+            habillage = Publicite.objects.get(formatPub='HABILLAGE')
+            media = habillage.media.url.split('/')
+            habillage.media = media[-1]
+        except: 
+            habillage = "empty"
+        response.context_data['habillage'] = habillage
+        try:
+            square = Publicite.objects.get(formatPub='SQUARE')
+            media = square.media.url.split('/')
+            square.media = media[-1]
+        except:
+            square = "empty"
+        response.context_data['square'] = square
+        try:
+            colonne = Publicite.objects.get(formatPub='COLONNE')
+            media = colonne.media.url.split('/')
+            colonne.media = media[-1]
+        except:
+            colonne = "empty"
+        response.context_data['colonne'] = colonne
         return response
 
 

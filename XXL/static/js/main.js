@@ -98,10 +98,10 @@ function placement_habillage(){
 // ./Placement HABILLAGE
 
 function adapt_form_width(){
-    target = $('#contentNav .form-group');
+    target = $('#contentNav .form-group .form-control');
     button = $('#contentNav .btn');
     if($(window).width()>=768){
-        target.css('width', $('.smallbox:first').outerWidth()-button.outerWidth()-12);
+        target.css('width', $('.smallbox:first').outerWidth()-button.outerWidth()-5);
     }else{
         target.css('width', '');
     }
@@ -134,8 +134,11 @@ function deploiment_contentNav(){
 
 function ajustement_pubRow_mobile(){
     if($(document).width() < 992){
-        $('.revueBox').css('float', 'right');
-        $('.revueBox img').css('width', '100%');
+        $('#pubRow').css('padding-top','30px');
+        $('#layer_revue').css('float', 'right');
+        $('#layer_revue .box').css('margin-top', '0');
+    }else{
+        $('#pubRow').css('padding-top','0');
     }
 }
 
