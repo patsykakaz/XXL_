@@ -3,60 +3,69 @@
 {% load i18n future mezzanine_tags blog_tags keyword_tags disqus_tags pages_tags staticfiles %}
 
 {% block blog_main %}
-
-{% for blog_post in blog_posts.object_list %}
-    {% if forloop.counter0 == 0 %}
-    <div class='col-md-8 col-sm-8 col-xs-12'>
-        <div class='box bigbox'>
-            <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
-    {% elif forloop.counter0 < 3 %}
-    <div class='col-md-4 col-sm-4 col-xs-6'>
-        <div class='box smallbox'>
-            <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
-    {% elif forloop.counter0 == 3 %}
-    <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
-        <div class='box bigbox'>
-            <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
-    {% elif forloop.counter0 > 3 %}
-    <div class='col-md-4 col-sm-4 col-xs-6'>
-        <div class='box smallbox'>
-            <div class='layer-img'>
-                <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
-    {% endif %}
-            </div>
-            <a href="{{ blog_post.get_absolute_url }}"><div class='item-caption'>
-                <h3>{{ blog_post.title|upper }}</h3>
-                <h4>
-    {% with blog_post.categories.all as categories %}
- 
-    {% endwith %}
-    {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
-                </h4>
-            </div></a>
-        </div>
-    </div>
-{% endfor %}
-
 {% if tag or category or year or month or author %}
-    {% block blog_post_list_filterinfo %}
-    <p>
-    {% if tag %}
-        {% trans "Viewing posts tagged" %} {{ tag }}
-    {% else %}{% if category %}
-        {% trans "Viewing posts for the category" %} {{ category }}
-    {% else %}{% if year or month %}
-        {% trans "Viewing posts from" %} {% if month %}{{ month }}, {% endif %}
-        {{ year }}
-    {% else %}{% if author %}
-        {% trans "Viewing posts by" %}
-        {{ author.get_full_name|default:author.username }}
-    {% endif %}{% endif %}{% endif %}{% endif %}
-    {% endblock %}
-    </p>
+    {% for blog_post in blog_posts.object_list %}
+        {% if forloop.counter0 == 0 %}
+        <div class='col-md-8 col-sm-8 col-xs-12'>
+            <div class='box bigbox'>
+                <div class='layer-img'>
+                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+        {% else %}
+        <div class='col-md-4 col-sm-4 col-xs-6'>
+            <div class='box smallbox'>
+                <div class='layer-img'>
+                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+        {% endif %}
+                </div>
+                <a href="{{ blog_post.get_absolute_url }}">
+                <div class='item-caption'>
+                    <h3>{{ blog_post.title|title }}</h3>
+                    <h4>
+                        {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
+                    </h4>
+                </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
 {% else %}
+    {% for blog_post in blog_posts.object_list %}
+        {% if forloop.counter0 == 0 %}
+        <div class='col-md-8 col-sm-8 col-xs-12'>
+            <div class='box bigbox'>
+                <div class='layer-img'>
+                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+        {% elif forloop.counter0 < 3 %}
+        <div class='col-md-4 col-sm-4 col-xs-6'>
+            <div class='box smallbox'>
+                <div class='layer-img'>
+                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+        {% elif forloop.counter0 == 3 %}
+        <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
+            <div class='box bigbox'>
+                <div class='layer-img'>
+                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+        {% elif forloop.counter0 > 3 %}
+        <div class='col-md-4 col-sm-4 col-xs-6'>
+            <div class='box smallbox'>
+                <div class='layer-img'>
+                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+        {% endif %}
+                </div>
+                <a href="{{ blog_post.get_absolute_url }}">
+                <div class='item-caption'>
+                    <h3>{{ blog_post.title|title }}</h3>
+                    <h4>
+                        {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
+                    </h4>
+                </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if not tag and not category and not year and not month and not author %}
     {% if page %}
     {% block blog_post_list_pagecontent %}
     {% if page.get_content_model.content %}
@@ -68,7 +77,7 @@
     {% endif %}
 {% endif %}
 
-{% for blog_post in blog_posts.object_listx %}
+{% for blog_post in blog_posts.object_listXXX %}
 {% block blog_post_list_post_title %}
 {% editable blog_post.title %}
 <h2>

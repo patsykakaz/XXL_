@@ -5,6 +5,9 @@
     orange: rgb(205,97,0);
     lightPurple: rgb(124,108,148);
 */
+a{
+    color: rgb(124,108,148);
+}
 
 .pagination>li>a, .pagination>li>span{
 	color: rgb(124,108,148);

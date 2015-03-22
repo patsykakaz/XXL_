@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
 <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{% static "css/bootstrap.override.css" %}">
 <link rel="stylesheet" href="{% static "css/main.css" %}">
 <link rel="stylesheet" href="{% static "css/responsive.css" %}">
@@ -62,7 +63,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#"><img src='{{ STATIC_URL }}img/logo_small.png' alt='logo'/></a>
+    <a class="navbar-brand" href="/"><img src='{{ STATIC_URL }}img/logo_small.png' alt='logo'/></a>
     {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>{% endif %}
 </div>
 
@@ -122,13 +123,15 @@
                     </div>
                 </div>
             </div>
+            {% if colonne != 'empty' %}
             <div class='col-md-12 col-sm-4 col-xs-5'>
                 <div class='box bigbox'>
                     <div class='layer-img'>
-                        <a><img src='{% static "img/colonne.png" %}' /></a>
+                        <a><img src='{{ MEDIA_URL }}publicite/{{ colonne.media }}' alt='publicité' /></a>
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

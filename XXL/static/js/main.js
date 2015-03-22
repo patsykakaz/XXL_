@@ -136,7 +136,6 @@ function ajustement_pubRow_mobile(){
     if($(document).width() < 992){
         $('#pubRow').css('padding-top','30px');
         $('#layer_revue').css('float', 'right');
-        $('#layer_revue .box').css('margin-top', '0');
     }else{
         $('#pubRow').css('padding-top','0');
     }

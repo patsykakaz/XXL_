@@ -13,6 +13,10 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
+h1,h2,h3{
+    font-family: 'Montserrat', sans-serif;
+}
+
 #navBorder{
     height: 10px;
     background-color: rgba(82,51,111,.85);
@@ -24,6 +28,7 @@ body{
     width: 100%;
     min-height: 1350px;
     margin: auto;
+    background-repeat: no-repeat;
     background-position: center top;
 }
 .on .shadowForContainer{
@@ -117,7 +122,7 @@ body{
 }
 .item-caption h3{
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     color: rgb(124,108,148);
 }.item-caption h4{
     margin: 0;
