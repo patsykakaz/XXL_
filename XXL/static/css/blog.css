@@ -8,6 +8,9 @@
 a{
     color: rgb(124,108,148);
 }
+a:hover,a:visited{
+    text-decoration: none;
+}
 
 .pagination>li>a, .pagination>li>span{
 	color: rgb(124,108,148);
