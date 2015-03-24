@@ -16,6 +16,14 @@ h1,h2,h3{
     font-family: 'Montserrat', sans-serif;
 }
 
+a{
+    color: rgb(124,108,148);
+}
+a:hover,a:visited{
+    color: rgb(124,108,148);
+    text-decoration: none;
+}
+
 #navBorder{
     height: 10px;
     background-color: rgba(82,51,111,.85);

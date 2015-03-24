@@ -5,12 +5,9 @@
     orange: rgb(205,97,0);
     lightPurple: rgb(124,108,148);
 */
-a{
+
+h2{
     color: rgb(124,108,148);
-}
-a:hover,a:visited{
-    color: rgb(82,51,111);
-    text-decoration: none;
 }
 
 .pagination>li>a, .pagination>li>span{
@@ -20,8 +17,6 @@ a:hover,a:visited{
 	background-color: rgb(124,108,148);
 	border-color: rgb(124,108,148);
 }
-
-
 
 #blog_detail .img-responsive{
     width: 100%;
