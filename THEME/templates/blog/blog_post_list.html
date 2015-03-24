@@ -7,60 +7,64 @@
     {% for blog_post in blog_posts.object_list %}
         {% if forloop.counter0 == 0 %}
         <div class='col-md-8 col-sm-8 col-xs-12'>
+            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box bigbox'>
                 <div class='layer-img'>
-                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' />
         {% else %}
         <div class='col-md-4 col-sm-4 col-xs-6'>
+            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box smallbox'>
                 <div class='layer-img'>
-                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' />
         {% endif %}
                 </div>
-                <a href="{{ blog_post.get_absolute_url }}">
                 <div class='item-caption'>
                     <h3>{{ blog_post.title|title }}</h3>
                     <h4>
                         {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
                     </h4>
                 </div>
-                </a>
             </div>
+            </a>
         </div>
     {% endfor %}
 {% else %}
     {% for blog_post in blog_posts.object_list %}
         {% if forloop.counter0 == 0 %}
         <div class='col-md-8 col-sm-8 col-xs-12'>
+            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box bigbox'>
                 <div class='layer-img'>
-                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' />
         {% elif forloop.counter0 < 3 %}
         <div class='col-md-4 col-sm-4 col-xs-6'>
+            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box smallbox'>
                 <div class='layer-img'>
-                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' />
         {% elif forloop.counter0 == 3 %}
         <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
+            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box bigbox'>
                 <div class='layer-img'>
-                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
+                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' />
         {% elif forloop.counter0 > 3 %}
         <div class='col-md-4 col-sm-4 col-xs-6'>
+            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box smallbox'>
                 <div class='layer-img'>
-                    <a><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
+                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' />
         {% endif %}
                 </div>
-                <a href="{{ blog_post.get_absolute_url }}">
                 <div class='item-caption'>
                     <h3>{{ blog_post.title|title }}</h3>
                     <h4>
                         {% blocktrans with sometime=blog_post.publish_date|timesince %}{{ sometime }} ago{% endblocktrans %}
                     </h4>
                 </div>
-                </a>
             </div>
+            </a>
         </div>
     {% endfor %}
 {% endif %}
@@ -151,5 +155,8 @@
 </div>
 {% endblock %}
 {% endfor %}
+<div class='text-center'>
+{% pagination_for blog_posts %}
+</div>
 {% endblock %}
 

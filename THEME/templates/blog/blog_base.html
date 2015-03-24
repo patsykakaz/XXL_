@@ -69,12 +69,12 @@
                     {% search_form %}
                 </form>
                 <ul class="nav navbar-nav">
-                    <li class="{% if not category %}active{% endif %}">
+                    <li class="{% if not category and not cat_blog_post %}active{% endif %}">
                         <a href="/">ALL</a>
                     </li>
                     {% for cat in category_all %}
-                    {% if cat.title != 'Digital' and cat.title != 'digital' and cat.title != 'DIGITAL' %}
-                            <li class="{% if cat == category %}active{% endif %}">
+                    {% if cat.title|lower != 'digital' %}
+                            <li class="{% if cat == category or cat == cat_blog_post %}active{% endif %}">
                                 <a href="{% url "blog_post_list_category" cat.slug %}">{{ cat.title|upper }} </a>
                             </li>
                     {% endif %}
@@ -89,9 +89,6 @@
 {% block blog_main %}
     <h3>BLOCK "blog_main"</h3>
 {% endblock %} 
-<div class='text-center'>
-{% pagination_for blog_posts %}
-</div>
 <!-- ./block blog_main -->
 {% endblock %} 
 
