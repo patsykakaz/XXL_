@@ -28,7 +28,7 @@
     position: relative;
     z-index: 101;
     width: 100%;
-    background-color: black;
+    background-color: #222;
     box-shadow: 0 0px 1px 1px rgba(0, 0, 0, 0.5);
     border: none;
 }
@@ -47,6 +47,17 @@
     letter-spacing: 2.4px;
     font-weight: lighter;
     color: white;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{
+    background-color: #222;
+}
+#masterNav .dropdown-menu>li>a{
+    background-color: transparent;
+}#masterNav .dropdown-menu>li>a:hover, #masterNav .dropdown-menu>li>a:focus{
+    background-color: rgb(82,51,111);
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus{
+    background-color: #222;
 }
 
 #contentNav .navbar-form{

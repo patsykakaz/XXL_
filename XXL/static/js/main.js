@@ -3,7 +3,6 @@
 $(document).ready(function(){
     // HABILLAGE
         if($('#pubLayer').length){
-            $('body').css('padding-bottom', '0');
             $('#navBorder').css('margin-bottom', '0');
             $('.container').addClass('shadowForContainer');
         }

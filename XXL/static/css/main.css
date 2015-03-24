@@ -8,7 +8,6 @@
 */
 
 body{
-    padding: 0 0 15px 0;
     background-color: white;
     font-family: 'Lato', sans-serif;
 }
@@ -128,4 +127,21 @@ h1,h2,h3{
     margin: 0;
     font-size: 14px;
     color: rgba(124,108,148,.7);
+}
+
+footer{
+    padding-top: 15px;
+    background-color: #f8f8f8;
+    border-top: 1px solid rgb(220,220,220);
+}
+.nav-footer{
+    text-align: center;
+}
+footer .list-unstyled{
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px 15px;
+}
+footer .list-unstyled li{
+    padding-bottom: 10px;
 }
