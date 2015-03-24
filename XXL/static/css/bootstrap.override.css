@@ -150,3 +150,10 @@
 .navbar-collapse{
     padding-left: 0;
 }
+
+
+.pager li>a, .pager li>span{
+    border-radius: 0;
+}.pager li>a:hover, .pager li>span:hover{
+    color: rgb(82,51,111);
+}

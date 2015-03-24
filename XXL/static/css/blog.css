@@ -9,6 +9,7 @@ a{
     color: rgb(124,108,148);
 }
 a:hover,a:visited{
+    color: rgb(82,51,111);
     text-decoration: none;
 }
 
@@ -20,3 +21,8 @@ a:hover,a:visited{
 	border-color: rgb(124,108,148);
 }
 
+
+
+#blog_detail .img-responsive{
+    width: 100%;
+}

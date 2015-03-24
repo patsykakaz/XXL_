@@ -15,7 +15,6 @@ class PubMiddleware(object):
             square = Publicite.objects.get(formatPub='SQUARE')
             media = square.media.url.split('/')
             square.media = media[-1]
-            print(square.media)
         except:
             square = "empty"
         response.context_data['square'] = square
