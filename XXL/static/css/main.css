@@ -33,7 +33,7 @@ a:hover,a:visited{
 #pubLayer{
     position: absolute;
     width: 100%;
-    min-height: 1350px;
+    min-height: 1250px;
     margin: auto;
     background-repeat: no-repeat;
     background-position: center top;
