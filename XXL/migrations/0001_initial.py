@@ -11,9 +11,9 @@ class Migration(SchemaMigration):
         # Adding model 'Publicite'
         db.create_table(u'XXL_publicite', (
             (u'page_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['pages.Page'], unique=True, primary_key=True)),
-            ('lien', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('media', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('formatPub', self.gf('django.db.models.fields.CharField')(max_length=250)),
+            ('lien', self.gf('django.db.models.fields.CharField')(max_length=255, null=True)),
+            ('media', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True)),
+            ('formatPub', self.gf('django.db.models.fields.CharField')(max_length=250, null=True)),
         ))
         db.send_create_signal(u'XXL', ['Publicite'])
 
@@ -26,9 +26,9 @@ class Migration(SchemaMigration):
     models = {
         u'XXL.publicite': {
             'Meta': {'ordering': "(u'_order',)", 'object_name': 'Publicite', '_ormbases': [u'pages.Page']},
-            'formatPub': ('django.db.models.fields.CharField', [], {'max_length': '250'}),
-            'lien': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'media': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'formatPub': ('django.db.models.fields.CharField', [], {'max_length': '250', 'null': 'True'}),
+            'lien': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True'}),
+            'media': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True'}),
             u'page_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['pages.Page']", 'unique': 'True', 'primary_key': 'True'})
         },
         u'pages.page': {
