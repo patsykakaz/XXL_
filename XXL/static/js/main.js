@@ -101,7 +101,7 @@ function placement_habillage(){
 function adapt_form_width(){
     target = $('#contentNav .form-group .form-control');
     button = $('#contentNav .btn');
-    if($(window).width()>=768){
+    if($(window).width()>=768 && $('.smallbox').length){
         target.css('width', $('.smallbox:first').outerWidth()-button.outerWidth()-5);
     }else{
         target.css('width', '');

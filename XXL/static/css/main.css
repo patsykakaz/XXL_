@@ -136,6 +136,10 @@ a:hover,a:visited{
     font-size: 14px;
     color: rgba(124,108,148,.7);
 }
+#layer-revue .item-caption{
+    padding: 5px;
+    height: auto;
+}
 
 footer{
     padding-top: 15px;
