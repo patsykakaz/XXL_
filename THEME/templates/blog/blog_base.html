@@ -70,7 +70,7 @@
                 </form>
                 <ul class="nav navbar-nav">
                     <li class="{% if not category and not cat_blog_post %}active{% endif %}">
-                        <a href="/">ALL</a>
+                        <a href="/"> <i class='fa fa-home fa-lg' style='color:rgb(124,108,148)'></i> </a>
                     </li>
                     {% for cat in category_all %}
                     {% if cat.title|lower != 'digital' %}

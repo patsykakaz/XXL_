@@ -24,7 +24,7 @@
     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
     <p>
         <div class='img_responsive_layer'>
-            <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 0 %}">
+            <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 200 %}">
         </div>
     </p>
     {% endif %}

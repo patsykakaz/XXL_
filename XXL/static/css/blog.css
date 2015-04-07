@@ -20,11 +20,13 @@ h2{
 
 #blog_detail .img_responsive_layer{
     width: 100%;
-    max-height: 200px;
+    max-height: 220px;
     overflow: hidden;
-    background-color: red;
 }
 #blog_detail .img-responsive{
     width: 100%;
     margin: auto;
+}
+#blog_detail .img-thumbnail{
+    border-radius: 0;
 }
