@@ -134,8 +134,8 @@ a:hover,a:visited{
     font-size: 14px;
     color: rgb(124,108,148);
 }.item-caption h4{
-    margin: 0;
-    margin-top: 2px;
+    display: inline-block;
+    margin: 2px 6px 0 0;
     font-size: 12px;
     color: rgba(124,108,148,.7);
 }
