@@ -31,6 +31,3 @@ admin.site.register(Publicite, PubliciteAdmin)
 admin.site.unregister(BlogPost)
 admin.site.register(BlogPost, MyBlogPostAdmin)
 
-
-
-
