@@ -20,10 +20,10 @@
         {% endif %}
                 </div>
                 <div class='item-caption'>
-                    <h3>{{ blog_post.title|title }}</h3>
-                    {% if blog_post.client %}
+                    <h3>{{ blog_post.title|lower|capfirst }}</h3>
+                    {% if blog_post.agence%}
                     <h4>
-                        Client : {{ blog_post.client|upper }}
+                        Agence : {{ blog_post.agence|upper }}
                     </h4>
                     {% endif %}
                     {% if blog_post.annonceur  %}
@@ -48,6 +48,7 @@
             <a href="{{ blog_post.get_absolute_url }}">
             <div class='box bigbox'>
                 <div class='layer-img'>
+                    <div class='item-category'>{{ category }}</div>
                     <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' />
         {% elif forloop.counter0 < 3 %}
         <div class='col-md-4 col-sm-4 col-xs-6'>
@@ -70,20 +71,20 @@
         {% endif %}
                 </div>
                 <div class='item-caption'>
-                    <h3>{{ blog_post.title|title }}</h3>
-                    {% if blog_post.client %}
+                    <h3>{{ blog_post.title|lower|capfirst }}</h3>
+                    {% if blog_post.agence%}
                     <h4>
-                        client : {{ blog_post.client|upper }}
+                        Agence : {{ blog_post.agence|upper }}
                     </h4>
                     {% endif %}
                     {% if blog_post.annonceur  %}
                     <h4>
-                        annonceur : {{ blog_post.annonceur|upper }}
+                        Annonceur : {{ blog_post.annonceur|upper }}
                     </h4>
                     {% endif %}
                     {% if blog_post.societe %}
                     <h4>
-                        societe : {{ blog_post.societe|upper }}
+                        Societe : {{ blog_post.societe|upper }}
                     </h4>
                     {% endif %}
                 </div>

@@ -19,13 +19,9 @@
 
 <p>
 {% if results.paginator.count == 0 %}
-{% blocktrans %}
-No results were found in {{ search_type }} matching your query: {{ query }}
-{% endblocktrans %}
+    Aucun résultat pour la recherche : <strong>" {{ query }} "</strong>
 {% else %}
-{% blocktrans with start=results.start_index end=results.end_index total=results.paginator.count %}
-Showing {{ start }} to {{ end }} of {{ total }} results in {{ search_type }} matching your query: {{ query }}
-{% endblocktrans %}
+    Résultats {{ start }} à {{ end }} sur {{ total }} pour la recherche : " {{ query }} "
 {% endif %}
 </p>
 

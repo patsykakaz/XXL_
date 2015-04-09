@@ -10,6 +10,7 @@
 body{
     background-color: white;
     font-family: 'Lato', sans-serif;
+    color: #333;
 }
 
 h1,h2,h3{
@@ -23,9 +24,15 @@ a:hover,a:visited{
     color: rgb(124,108,148);
     text-decoration: none;
 }
+iframe{
+    display: block;
+    padding: 20px;
+    margin: auto;
+    border: none;
+}
 
 #navBorder{
-    height: 10px;
+    height: 6px;
     background-color: rgba(82,51,111,.85);
     margin-bottom: 15px;
 }
@@ -48,6 +55,8 @@ a:hover,a:visited{
     /*overflow: hidden;*/
     margin-bottom: 50px;
     background-color: white;
+    line-height: 25px;
+    letter-spacing: 1px;
 }
 #main.pubOn{
     max-width: 970px;
@@ -59,10 +68,12 @@ a:hover,a:visited{
 }
 #main img{
     max-width: 100%;
+    max-height: 500px;
 }
 #nav2{
     position: relative;
     top: 1px;
+    letter-spacing: 0;
 }
 
 .box{
@@ -93,6 +104,7 @@ a:hover,a:visited{
 #pubRow{
     border-left: 1px dashed;
     border-color: rgb(200,200,200);
+    text-align: center;
 }
 
 .layer-img{
@@ -128,6 +140,8 @@ a:hover,a:visited{
 .item-caption{
     height: 90px;
     padding: 10px;
+    line-height: normal; 
+    letter-spacing: 0;
 }
 .item-caption h3{
     margin: 0;
@@ -139,9 +153,14 @@ a:hover,a:visited{
     font-size: 12px;
     color: rgba(124,108,148,.7);
 }
-#layer-revue .item-caption{
+#layer_revue .box{
+    background-color: white;
+}
+#layer_revue .item-caption{
+    height: 30px;
     padding: 5px;
     height: auto;
+    color: rgb(124,108,148);
 }
 
 footer{

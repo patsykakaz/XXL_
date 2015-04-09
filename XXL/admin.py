@@ -19,7 +19,7 @@ class PubliciteAdmin(PageAdmin):
     fieldsets = deepcopy(PageAdmin.fieldsets) + publicite_extra_fieldsets
 
 blog_fieldsets = deepcopy(BlogPostAdmin.fieldsets)
-blog_fieldsets[0][1]["fields"].insert(-2, "client")
+blog_fieldsets[0][1]["fields"].insert(-2, "agence")
 blog_fieldsets[0][1]["fields"].insert(-2, "annonceur")
 blog_fieldsets[0][1]["fields"].insert(-2, "societe")
 
