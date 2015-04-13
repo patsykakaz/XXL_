@@ -113,6 +113,22 @@ iframe{
 }.layer-img img{
     width: 100%;
 }
+.layer-img .item-category{
+    position: absolute;
+    right: 0;
+    top: -20px;
+    z-index: 2;
+    padding: 22px 15px 5px 25px;
+    border-radius: 200px 0 0 200px;
+    background-color: rgba(0,0,0,.35);
+    color: white;
+}.layer-img .item-category:hover{
+    background-color: rgba(0,0,0,.7);
+}
+.layer-img .item-category a{
+    color: white
+}
+
 #contentRow .smallbox .layer-img{
 	height: 130px;
 }#contentRow .bigbox .layer-img{

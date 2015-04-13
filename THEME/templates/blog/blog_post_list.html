@@ -45,31 +45,63 @@
     {% for blog_post in blog_posts.object_list %}
         {% if forloop.counter0 == 0 %}
         <div class='col-md-8 col-sm-8 col-xs-12'>
-            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box bigbox'>
                 <div class='layer-img'>
-                    <div class='item-category'>{{ category }}</div>
-                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' />
+                    <div class='item-category'>
+                        {% with blog_post.categories.all as categories %}
+                        {% if categories %}
+                        {% for category in categories %}
+                        <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %} | {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <a href="{{ blog_post.get_absolute_url }}"><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
         {% elif forloop.counter0 < 3 %}
         <div class='col-md-4 col-sm-4 col-xs-6'>
-            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box smallbox'>
                 <div class='layer-img'>
-                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' />
+                    <div class='item-category'>
+                        {% with blog_post.categories.all as categories %}
+                        {% if categories %}
+                        {% for category in categories %}
+                        <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %} | {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <a href="{{ blog_post.get_absolute_url }}"><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
         {% elif forloop.counter0 == 3 %}
         <div class='col-md-8 col-sm-8 col-xs-12' style='float: right'>
-            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box bigbox'>
                 <div class='layer-img'>
-                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' />
+                    <div class='item-category'>
+                        {% with blog_post.categories.all as categories %}
+                        {% if categories %}
+                        {% for category in categories %}
+                        <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %} | {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <a href="{{ blog_post.get_absolute_url }}"><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 610 400 %}' /></a>
         {% elif forloop.counter0 > 3 %}
         <div class='col-md-4 col-sm-4 col-xs-6'>
-            <a href="{{ blog_post.get_absolute_url }}">
             <div class='box smallbox'>
                 <div class='layer-img'>
-                    <img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' />
+                    <div class='item-category'>
+                        {% with blog_post.categories.all as categories %}
+                        {% if categories %}
+                        {% for category in categories %}
+                        <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %} | {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <a href="{{ blog_post.get_absolute_url }}"><img class='illustration' src='{{ MEDIA_URL }}{%  thumbnail blog_post.featured_image 300 200 %}' /></a>
         {% endif %}
                 </div>
+                <a href="{{ blog_post.get_absolute_url }}">
                 <div class='item-caption'>
                     <h3>{{ blog_post.title|lower|capfirst }}</h3>
                     {% if blog_post.agence%}
@@ -88,8 +120,8 @@
                     </h4>
                     {% endif %}
                 </div>
+                </a>
             </div>
-            </a>
         </div>
     {% endfor %}
 {% endif %}

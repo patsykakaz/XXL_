@@ -59,13 +59,14 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus{
     background-color: #222;
 }
-
+@media screen and (min-width: 768px) {
 #contentNav .navbar-form{
     padding: 12px 0 0 0;
     margin-bottom: 0;
 }#contentNav.deployNav .navbar-form{
     padding: 2px 0 0 0;
     margin-bottom: 0;
+}
 }
 
 #masterNav .navbar-inverse .navbar-nav>li>a{
@@ -151,6 +152,8 @@
     padding-bottom: 15px;
 }
 .navbar-default .navbar-nav>li>a{
+    color: rgb(124,108,148);
+}.navbar-default .navbar-nav>li>a>i{
     color: rgb(124,108,148);
 }
 
