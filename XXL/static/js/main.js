@@ -15,6 +15,8 @@ $(window).load(function(){
     placement_habillage();
     place_shifting_elements();
     adapt_form_width();
+    layer_revue_wrapper_sizing()
+    layer_revue_hover();
 });
 $(window).resize(function(){
     placement_habillage();
@@ -22,6 +24,7 @@ $(window).resize(function(){
     place_shifting_elements();
     deploiment_contentNav();
     adapt_form_width();
+    layer_revue_wrapper_sizing()
 });
 $(document).scroll(function(){
     place_shifting_elements();
@@ -89,11 +92,11 @@ function placement_habillage(){
         }else{
             $('#main').css('margin-top', '150px');
         }
-        if($(window).width()>992){
+        if($(window).width()<992){
             $('#pubRow .box:first').css('margin-top', '15px');
         }
     }else{
-        $('#pubRow .box:first').css('margin-top', '0');
+        // $('#pubRow .box:first').css('margin-top', '0');
     }
 }
 // ./Placement HABILLAGE
@@ -141,4 +144,111 @@ function ajustement_pubRow_mobile(){
         $('#pubRow').css('padding-top','0');
     }
 }
+
+
+// EFFET .container-titre:hover
+
+function layer_revue_wrapper_sizing(){
+    $('#layer_revue .cover-detail').css('left', '0').css('top', ('-450px'));
+    coverHeight = $('.container-titre img').outerHeight();
+    coverWidth = $('.container-titre img').outerWidth();
+    coverWrapper = $('.container-titre .cover-wrapper');
+    coverWrapper.css('width', coverWidth+'px')
+                .css('height', coverHeight+'px');
+    coverDetail = coverWrapper.children('a').children('.cover-detail');
+    coverDetail.css('width', coverWidth+'px')
+                .css('height', coverHeight+'px');
+    textarea = coverDetail.children('h3');
+    textarea.css('margin-top', (coverHeight - textarea.height())/2-100+'px');
+}
+
+function layer_revue_hover(){
+
+    $(".cover-wrapper").hover(function(e) {
+        elementPosition = $(this).offset();
+        edge = closestEdge(e.pageX - elementPosition.left, e.pageY - elementPosition.top, $(this).width(), $(this).height());
+        target = $(this).children('a').children('.cover-detail');
+        coverDetailWidth  = target.outerWidth();
+        coverDetailHeight = target.outerHeight();
+        switch(edge){
+            case 'top':
+                target.css('left', '0px').css('top', '-'+coverDetailHeight+'px');
+                target.animate({
+                    top: '0px'
+                },200);
+                break;
+            case 'bottom':
+                target.css('left', '0px').css('top', coverDetailHeight+'px');
+                target.animate({
+                    top: '0px'
+                },200);
+                break;
+            case 'left':
+                target.css('left', '-300px').css('top', '0px');
+                target.animate({
+                    left: '0px'
+                },200);
+                break;
+            case 'right':
+                target.css('left', '300px').css('top', '0px');
+                target.animate({
+                    left: '0px'
+                },200);
+                break;
+        }
+    },function(e) {
+        elementPosition = $(this).offset();
+        edge = closestEdge(e.pageX - elementPosition.left, e.pageY - elementPosition.top, $(this).width(), $(this).height());
+        target = $(this).children('a').children('.cover-detail');
+        coverDetailWidth  = target.outerWidth();
+        coverDetailHeight = target.outerHeight();
+        switch(edge){
+            case 'top':
+                target.animate({
+                    top: '-'+coverDetailHeight+'px'
+                },200);
+                break;
+            case 'bottom':
+                target.animate({
+                    top: coverDetailHeight+'px'
+                },200);
+                break;
+            case 'left':
+                target.animate({
+                    left: '-300px'
+                },200);
+                break;
+            case 'right':
+                target.animate({
+                    left: '300px'
+                },200);
+                break;
+        }
+    });
+    function closestEdge(x,y,w,h) {
+            var topEdgeDist = distMetric(x,y,w/2,0);
+            var bottomEdgeDist = distMetric(x,y,w/2,h);
+            var leftEdgeDist = distMetric(x,y,0,h/2);
+            var rightEdgeDist = distMetric(x,y,w,h/2);
+        
+            var min = Math.min(topEdgeDist,bottomEdgeDist,leftEdgeDist,rightEdgeDist);
+            switch (min) {
+                case leftEdgeDist:
+                    return "left";
+                case rightEdgeDist:
+                    return "right";
+                case topEdgeDist:
+                    return "top";
+                case bottomEdgeDist:
+                    return "bottom";
+            }
+    }
+    function distMetric(x,y,x2,y2) {
+        var xDiff = x - x2;
+        var yDiff = y - y2;
+        return (xDiff * xDiff) + (yDiff * yDiff);
+    }
+
+}
+// EFFET .container-titre:hover
 

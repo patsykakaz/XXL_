@@ -7,6 +7,13 @@
 {% block extra_head %}
 <meta name="robots" content="noindex">
 {% endblock %}
+{% block extra_css %}
+<style>
+    .row{
+        margin: 0;
+    }
+</style>
+{% endblock %}
 
 {% block breadcrumb_menu %}
 <li>
@@ -17,18 +24,18 @@
 
 {% block main %}
 
-<p>
+<h4 class='text-center' style='margin: 20px'>
 {% if results.paginator.count == 0 %}
     Aucun résultat pour la recherche : <strong>" {{ query }} "</strong>
 {% else %}
-    Résultats {{ start }} à {{ end }} sur {{ total }} pour la recherche : " {{ query }} "
+    Résultats {{ start }} à {{ end }} sur {{ total }} pour la recherche : "<strong> {{ query|upper }} </strong>"
 {% endif %}
-</p>
+</h4>
 
 <div id="search-results">
     {% for result in results.object_list %}
-    <h5>{{ forloop.counter0|add:results.start_index }})
-        <a href="{{ result.get_absolute_url }}">{{ result }}</a></h5>
+    <div class='thumbnail' style='margin-top: 30px'>
+        <a href="{{ result.get_absolute_url }}"> <i class='fa fa-angle-right fa-small' style='margin: 0 12px'></i> {{ result }}</a></div>
     <p>{{ result.description|truncatewords_html:20|safe }}</p>
     <a href="{{ result.get_absolute_url }}">{% trans "read more" %}</a>
     {% endfor %}

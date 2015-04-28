@@ -20,7 +20,7 @@
         {% endif %}
                 </div>
                 <div class='item-caption'>
-                    <h3>{{ blog_post.title|lower|capfirst }}</h3>
+                    <h3>{{ blog_post.title|capfirst }}</h3>
                     {% if blog_post.agence%}
                     <h4>
                         Agence : {{ blog_post.agence|upper }}
@@ -103,7 +103,7 @@
                 </div>
                 <a href="{{ blog_post.get_absolute_url }}">
                 <div class='item-caption'>
-                    <h3>{{ blog_post.title|lower|capfirst }}</h3>
+                    <h3>{{ blog_post.title|capfirst }}</h3>
                     {% if blog_post.agence%}
                     <h4>
                         Agence : {{ blog_post.agence|upper }}

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static "css/blog.css" %}">
 {% endblock %}
 
-{% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Blog" %}{% endif %}{% endblock %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% elif category %}{{ category }}{% else %}ACCUEIL{% endif %}{% endblock %}
 
 {% block meta_keywords %}{% metablock %}
 {% keywords_for page as keywords %}
@@ -17,7 +17,11 @@
 {% endmetablock %}{% endblock %}
 
 {% block meta_description %}{% metablock %}
+{% if page.description %}
 {{ page.description }}
+{% else %}
+Description de la page
+{% endif %}
 {% endmetablock %}{% endblock %}
 
 {% block title %}
@@ -65,7 +69,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="nav2">
-                <form action='/search/' class="navbar-form navbar-right" role="search">
+                <form id='search_form' action='/search/' class="navbar-form navbar-right" role="search">
                     {% search_form %}
                 </form>
                 <ul class="nav navbar-nav">

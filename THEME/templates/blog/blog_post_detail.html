@@ -1,7 +1,14 @@
 {% extends "blog/blog_base.html" %}
 {% load mezzanine_tags pages_tags blog_tags keyword_tags i18n future %}
 
-
+{% block extra_css %}
+<style>
+#main img{
+    max-width: 100%;
+    max-height: 500px;
+}
+</style>
+{% endblock %}
 {% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
 
 {% block meta_keywords %}{% metablock %}
@@ -24,13 +31,25 @@
     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
     <p>
         <div class='img_responsive_layer'>
-            <img class="img-responsive img-thumbnail" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 200 %}">
+            <a href data-toggle="modal" data-target="#modal_illustration"><img class="img-responsive img-thumbnail" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 200 %}"></a>
         </div>
     </p>
+<div id='modal_illustration' class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class='fa fa-close' style='color: white'></i></span></button>
+      </div>
+      <div class="modal-body">
+	<img src='{{ MEDIA_URL }}{{ blog_post.featured_image }}' alt="image d'illustration" />
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
     {% endif %}
     {% endblock %}
 
-    <h2 class='text-center'>{{ blog_post.title|title }}</h2>
+    <h2 class='text-center'>{{ blog_post.title|capfirst }}</h2>
 
     {% block blog_post_detail_postedby %}
     {% editable blog_post.publish_date %}
