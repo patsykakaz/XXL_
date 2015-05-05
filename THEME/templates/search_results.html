@@ -36,7 +36,9 @@
     {% for result in results.object_list %}
     <div class='row'>
         <div class='col-md-3 text-center' style='margin-top: 30px'>
+            {% if result.featured_image %}
             <img class="img-thumbnail" src="{{ MEDIA_URL }}{% thumbnail result.featured_image 90 90 %}">
+            {% endif %}
         </div>
         <div class='col-md-9'>
             <div class='thumbnail' style='margin-top: 30px'>
