@@ -240,9 +240,14 @@ function layer_revue_hover(){
 function adapt_form_width(){
     target = $('.navbar-form');
     referent = $('#contentNav .container-fluid');
-    target.width(referent.outerWidth() - $('#search-btn').outerWidth()).height(referent.height());
     subTarget = $('.navbar-form .form-group .form-control');
-    subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth() +2).outerHeight(referent.outerHeight());
+    if($(window).width > 768){
+        target.width(referent.outerWidth() - $('#search-btn').outerWidth()).height(referent.height());
+        subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth() +2).outerHeight(referent.outerHeight());
+    }else{
+        target.width(referent.outerWidth()).height();
+        subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth() +2).outerHeight(50);
+    }
 }
 
 function toggle_navbar_form(){
