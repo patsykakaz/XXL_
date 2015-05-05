@@ -241,9 +241,9 @@ function adapt_form_width(){
     target = $('.navbar-form');
     referent = $('#contentNav .container-fluid');
     subTarget = $('.navbar-form .form-group .form-control');
-    if($(window).width > 768){
-        target.width(referent.outerWidth() - $('#search-btn').outerWidth()).height(referent.height());
-        subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth() +2).outerHeight(referent.outerHeight());
+    if($(window).width() > 768){
+        target.height(referent.height());
+        subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth()).outerHeight(referent.outerHeight());
     }else{
         target.width(referent.outerWidth()).height();
         subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth() +2).outerHeight(50);
