@@ -249,6 +249,7 @@ function toggle_navbar_form(){
     $('#search-btn').click(function(){
         if($('#search_form').hasClass('hide')){
             $('#search_form').removeClass('hide');
+            $('#search_form input').focus();
             $('#search-btn li a i').removeClass('fa-search-plus').addClass('fa-close');
         }else{
             $('#search_form').addClass('hide');
