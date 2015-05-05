@@ -25,7 +25,10 @@ h2{
 #search-btn a{
     padding: 25px;
     border-bottom: 5px solid rgb(124,108,148);
-}#search-btn a i{
+}.deployNav #search-btn a{
+    padding: 15px;
+}
+#search-btn a i{
     color: white;
 }
 
