@@ -47,12 +47,6 @@
     font-weight: lighter;
     color: white;
 }
-@media screen and (min-width: 500px){
-    .navbar-text.visible-lg{
-        display: block!important;
-        font-size: 13px;
-    }
-}
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{
     background-color: #222;
 }
@@ -64,15 +58,7 @@
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus{
     background-color: #222;
 }
-@media screen and (min-width: 768px) {
-#contentNav .navbar-form{
-    padding: 12px 0 0 0;
-    margin-bottom: 0;
-}#contentNav.deployNav .navbar-form{
-    padding: 2px 0 0 0;
-    margin-bottom: 0;
-}
-}
+
 
 #masterNav .navbar-inverse .navbar-nav>li>a{
     color: white;
@@ -102,10 +88,6 @@
     background-color: white;
     border: none;
     border-bottom: 1px dashed rgb(200,200,200);
-}
-
-#contentNav .container-fluid{
-    /*padding: 0 15px 0 0;*/
 }
 #contentNav.deployNav{
     position: fixed;
@@ -191,4 +173,43 @@
 }
 #blog_detail .modal-body img{
     padding: 0;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    #contentNav .container-fluid{
+        padding: 0 0px 0 15px;
+    }
+    #search-btn{
+        margin-right: 0;
+    }
+    #contentNav .navbar-form{
+        position: absolute;
+        z-index: 9;
+        padding: 0;
+        margin: 0;
+    }#contentNav.deployNav .navbar-form{
+        padding: 2px 0 0 0;
+        margin-bottom: 0;
+    }
+    #contentNav .navbar-form .form-group .form-control{
+        font-size: 22px;
+        color: rgb(124,108,148);
+    }
+}
+@media screen and (max-width: 768px) {
+    #search-btn{
+        display: none;
+    }
+    #search_form.hide{
+        display: block!important;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .navbar-text.visible-lg{
+        display: block!important;
+        font-size: 13px;
+    }
 }

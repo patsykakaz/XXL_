@@ -9,6 +9,25 @@
 h2{
     color: rgb(124,108,148);
 }
+@media screen and (min-width: 768px) {
+    #nav2{
+        position: relative;
+        top: 1px;
+        letter-spacing: 0;
+        padding: 0;
+    }
+}
+
+
+#search-btn{
+    background-color: rgb(124,108,148);
+}
+#search-btn a{
+    padding: 25px;
+    border-bottom: 5px solid rgb(124,108,148);
+}#search-btn a i{
+    color: white;
+}
 
 .pagination>li>a, .pagination>li>span{
 	color: rgb(124,108,148);

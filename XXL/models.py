@@ -3,6 +3,8 @@
 from django.db import models
 from mezzanine.pages.models import Page
 from settings import MEDIA_ROOT
+from django.utils.timezone import now
+from mezzanine.core.models import Displayable
 
 class Publicite(Page):
     lien = models.CharField(max_length=255, null=True, blank=True)
@@ -13,6 +15,3 @@ class Publicite(Page):
         ('COLONNE','COLONNE'),
     )
     formatPub = models.CharField(choices=OPTION_FORMAT_PUB, max_length=250, null=True)
-
-
-

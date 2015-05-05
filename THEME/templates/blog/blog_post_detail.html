@@ -1,14 +1,11 @@
 {% extends "blog/blog_base.html" %}
 {% load mezzanine_tags pages_tags blog_tags keyword_tags i18n future %}
-
-{% block extra_css %}
 <style>
 #main img{
     max-width: 100%;
     max-height: 500px;
 }
 </style>
-{% endblock %}
 {% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
 
 {% block meta_keywords %}{% metablock %}

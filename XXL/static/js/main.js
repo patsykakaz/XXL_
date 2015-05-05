@@ -15,6 +15,7 @@ $(window).load(function(){
     placement_habillage();
     place_shifting_elements();
     adapt_form_width();
+    toggle_navbar_form();
     layer_revue_wrapper_sizing()
     layer_revue_hover();
 });
@@ -35,11 +36,6 @@ $(document).scroll(function(){
 
 
 function place_static_elements(){
-    // if($(window).width()>=768){
-    //     $('#masterNav .navbar-nav').each(function(){
-    //         $(this).css('margin-top', ($('.navbar').height()-$(this).outerHeight()));
-    //     });
-    // }
     if($('#pubLayer').length){
         $('body').css('background-color', 'white');
         $('#main').addClass('pubOn');
@@ -53,8 +49,6 @@ function place_static_elements(){
 function place_shifting_elements(){
     // positionnement du logo pour la deployNav
     $('#logo_deploy').css('left', ($(window).width()-$('#main').outerWidth())/2-$('#logo_deploy').outerWidth());
-    // Alignement vertical de navbar-form
-    target = $('#contentNav .navbar-form');
     ajustement_pubRow_mobile();
 }
 
@@ -66,16 +60,6 @@ function boxImageSizing(){
         illustration.css('right', (illustration.width()-layer.width())/2).css('bottom', (illustration.height()-layer.height())/2);
     });
 }
-    // function boxImageSizing_bkp(){
-    //     $('.box').each(function(){
-    //         layer = $(this).children('.layer-img');
-    //         illustration = layer.children('a').children('.illustration');
-    //         if(illustration.width()<layer.width()){
-    //             illustration.css('height', 'auto').css('width', '100%').css('bottom',(illustration.height()-layer.height())/2);
-    //         }
-    //     });
-    // }
-// ./Resizing box images
 
 // Placement HABILLAGE
 function placement_habillage(){
@@ -252,3 +236,24 @@ function layer_revue_hover(){
 }
 // EFFET .container-titre:hover
 
+// EXTRA new navbar form
+function adapt_form_width(){
+    target = $('.navbar-form');
+    referent = $('#contentNav .container-fluid');
+    target.width(referent.outerWidth() - $('#search-btn').outerWidth()).height(referent.height());
+    subTarget = $('.navbar-form .form-group .form-control');
+    subTarget.outerWidth(referent.width() - $('#search-btn').outerWidth() +2).outerHeight(referent.outerHeight());
+}
+
+function toggle_navbar_form(){
+    $('#search-btn').click(function(){
+        if($('#search_form').hasClass('hide')){
+            $('#search_form').removeClass('hide');
+            $('#search-btn li a i').removeClass('fa-search-plus').addClass('fa-close');
+        }else{
+            $('#search_form').addClass('hide');
+            $('#search-btn li a i').removeClass('fa-close').addClass('fa-search-plus');
+        }
+    });
+}
+// ./new navbar form
