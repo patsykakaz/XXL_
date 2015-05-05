@@ -6,21 +6,25 @@
 <link rel="stylesheet" href="{% static "css/blog.css" %}">
 {% endblock %}
 
-{% block meta_title %}{% if page %}{{ page.meta_title }}{% elif category %}{{ category }}{% else %}ACCUEIL{% endif %}{% endblock %}
+{% block meta_title %}{% if page %}{{ page.meta_title }}{% elif category %}{{ category }}{% else %}le magazine de la communication grand format et de l’affichage{% endif %}{% endblock %}
 
 {% block meta_keywords %}{% metablock %}
 {% keywords_for page as keywords %}
+{% if keywords %}
 {% for keyword in keywords %}
     {% if not forloop.first %}, {% endif %}
     {{ keyword }}
 {% endfor %}
+{% else %}
+communication, magazine, XXL, Format XXL, Grand format, affichage, agence de publicité, pub, imprimeur, print, affiche, création
+{% endif %}
 {% endmetablock %}{% endblock %}
 
 {% block meta_description %}{% metablock %}
 {% if page.description %}
 {{ page.description }}
 {% else %}
-Description de la page
+Format XXL est le magazine spécialisé dans la communication grand format et l'affichage. 
 {% endif %}
 {% endmetablock %}{% endblock %}
 
